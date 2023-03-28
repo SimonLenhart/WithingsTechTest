@@ -1,41 +1,29 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
 
+/**
+ * Component for displaying the questions
+ * @returns
+ */
 const Question = (props) => {
-  const [selected, setSelected] = useState(null); // TODO select an answer
-  const [arrayWasShuffled, setArrayWasShuffled] = useState(false);
-  if (!arrayWasShuffled) {
-    shuffleArray(props.answers);
-    setArrayWasShuffled(true);
-  }
+  const [selected, setSelected] = useState(null);
 
+  /**
+   * If an answer is clicked, mark it as selected
+   * @param {*} answer Which element was clicked
+   */
   const elementClicked = (answer) => {
     setSelected(answer);
+    props.answerClicked(answer);
   };
-
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  useEffect(() => {
-    // TODO reset when question change
-    setSelected(null);
-    setArrayWasShuffled(false);
-  }, []);
 
   return (
     <div className="question-container">
-      {props.question !== null && arrayWasShuffled ? (
+      {props.answers !== "" ? (
         <div>
-          <p>{props.question.question}</p>
+          <p>{props.question}</p>
           <div className="question-answers">
-            {props.answers.map((answer, index) => (
+            {props.answers.map((answer) => (
               <p
-                key={index}
                 onClick={() => elementClicked(answer)}
                 className={`${
                   answer === props.correctAnswer && props.showCorrectAnswer

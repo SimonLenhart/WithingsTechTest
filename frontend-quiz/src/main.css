@@ -152,7 +152,7 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1.125rem;
   font-weight: bold;
   margin: 15px;
   cursor: pointer;
@@ -172,10 +172,11 @@ button {
   background-color: rgba(255, 255, 255, 0.96);
   border-radius: 10px;
   padding: 20px;
+  overflow: auto;
 }
 
 .App-header h1 {
-  font-size: 45px;
+  font-size: 2.5rem;
   font-weight: 500;
   margin-bottom: 3px;
   text-align: center;
@@ -208,7 +209,7 @@ button {
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 .question-container > div > p {
-  font-size: 30px;
+  font-size: 1.75rem;
 }
 
 .question-answers > p {
@@ -217,7 +218,7 @@ button {
   padding: 16px;
   border: 3px solid white;
   border-radius: 20px;
-  font-size: 20px;
+  font-size: 1.125rem;
   cursor: pointer;
 }
 .question-answers > p.selected {
@@ -226,4 +227,26 @@ button {
 
 .question-answers > p.correctAnswer {
   background-color: rgb(0, 123, 29);
+}
+
+.endTemplate > h3 {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+.endTemplate > p {
+  margin: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .score {
+    margin: 10px 0px;
+  }
+  .question-container > div > p {
+    font-size: 1.25rem;
+  }
+  .question-answers > p {
+    font-size: 1rem;
+    padding: 8px;
+  }
 }
